@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace ToCutProjectors.drawing
 {
-    internal class LPoint
+    public struct LPoint
     {
+        public float X { get; set; }
+        public float Y { get; set; }
+        public float Z { get; set; }
+
+        public byte T { get; set; }
     }
 }

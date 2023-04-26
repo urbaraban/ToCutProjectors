@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToCutProjectors.transforming
+namespace ToCutProjectors.drawing.transforming
 {
-    internal class EllipsoidTransform
+    internal class MeshTransform
     {
     }
 }

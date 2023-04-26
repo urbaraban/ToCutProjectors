@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ToCutProjectors.drawing;
 
 namespace ToCutProjectors.services
 {
-    internal interface IDrawingTransform
+    public interface IDrawingTransform
     {
+        public LPoint Transform(LPoint point);
     }
 }
