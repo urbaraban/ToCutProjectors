@@ -8,9 +8,6 @@
 
   <ItemGroup>
     <Folder Include="dll\" />
-    <Folder Include="services\" />
-    <Folder Include="devices\" />
-    <Folder Include="drawing\" />
   </ItemGroup>
 
   <ItemGroup>
