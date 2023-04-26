@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="dll\" />
+    <Folder Include="services\" />
+    <Folder Include="devices\" />
+    <Folder Include="drawing\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MonchaNETDll">
+      <HintPath>dll\MonchaNETDll.DLL</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="dll\MonchaNETDll.DLL">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
