@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToCutProjectors", "ToCutProjectors\ToCutProjectors.csproj", "{3F216EAA-0A15-419A-91D5-10426F364AD2}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7193DF23-C485-46E8-B5CE-8D41ABE1548E}"
+  Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToCutProjectors", "ToCutProjectors\ToCutProjectors.csproj", "{3F216EAA-0A15-419A-91D5-10426F364AD2}"
+  EndProject
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{F1222C3F-1497-4413-9CC6-F1377BB93296}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToCutProjectorsTest", "ToCutProjectorsTest\ToCutProjectorsTest.csproj", "{D3310A5F-2D81-436C-9C90-A37E5CE6CB20}"
+  Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToCutProjectorsTest", "ToCutProjectorsTest\ToCutProjectorsTest.csproj", "{D3310A5F-2D81-436C-9C90-A37E5CE6CB20}"
+  EndProject
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "materials", "materials", "{212C758C-2709-4C48-AFA7-150775D58BE0}"
 EndProject
