@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Net;
 using ToCutProjectors.drawing;
 using ToCutProjectors.services;
 
@@ -8,7 +7,6 @@ namespace ToCutProjectors
     public class LProjector : Collection<IFrameOperator>
     {
         public bool IsOn { get; set; } = true;
-
         private ProjectorFrame? Frame { get; set; }
 
         private CancellationTokenSource cancellation = new CancellationTokenSource();
