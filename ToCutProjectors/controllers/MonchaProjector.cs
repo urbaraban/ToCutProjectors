@@ -57,7 +57,7 @@ namespace ToCutProjectors.controllers
         private Task? WhileTask { get; set; }
         public bool IsOn { get; set; }
 
-        public drawing.ProjectorFrame? ModifierFrame(drawing.ProjectorFrame modifierFrame)
+        public drawing.ProjectorFrame? FrameOperation(drawing.ProjectorFrame modifierFrame)
         {
             LFrame frame = new LFrame();
             this.Frame = frame;

@@ -32,7 +32,7 @@ namespace ToCutProjectors
                     {
                         if (this[i].IsOn == true)
                         {
-                            result = this[i].ModifierFrame(result);
+                            result = this[i].FrameOperation(result);
                         }
                     }
                 }, ct);

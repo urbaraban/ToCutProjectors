@@ -5,19 +5,41 @@ namespace ToCutProjectors.transforming
 {
     public class AxisCorrectTransform : IFrameOperator
     {
+        public bool IsOn { get; set; }
         public List<float> XAxisCorrect { get; } = new List<float>() { 0f, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f };
         public List<float> YAxisCorrect { get; } = new List<float>() { 0f, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f };
 
-        public LPoint Transform(LPoint point)
+        public ProjectorFrame? FrameOperation(ProjectorFrame modifierFrame)
+        {
+            ProjectorFrame result = new ProjectorFrame();
+            foreach (IDrawingObject drawingObject in modifierFrame)
+            {
+                if (drawingObject is LVectorCollection vcollection)
+                {
+                    result.Add(Transform(vcollection));
+                }
+                else
+                {
+                    result.Add(drawingObject);
+                }
+
+            }
+            return result;
+        }
+
+        private LPoint Transform(LPoint point)
         {
             point.X = GetAxisCorrect(point.X, XAxisCorrect);
             point.Y = GetAxisCorrect(point.Y, YAxisCorrect);
             return point;
         }
 
+        private LVector Transform(LVector vector)
+        {
 
+        }
 
-        public LVectorCollection Transform(LVectorCollection objects)
+        private LVectorCollection Transform(LVectorCollection objects)
         {
             throw new NotImplementedException();
         }
@@ -36,6 +58,5 @@ namespace ToCutProjectors.transforming
             }
             return value;
         }
-
     }
 }

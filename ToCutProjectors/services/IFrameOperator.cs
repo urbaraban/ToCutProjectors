@@ -5,6 +5,6 @@ namespace ToCutProjectors.services
     public interface IFrameOperator
     {
         public bool IsOn { get; set; }
-        public ProjectorFrame? ModifierFrame(ProjectorFrame modifierFrame);
+        public ProjectorFrame? FrameOperation(ProjectorFrame modifierFrame);
     }
 }
