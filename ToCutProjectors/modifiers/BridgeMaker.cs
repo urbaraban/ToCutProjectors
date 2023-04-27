@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToCutProjectors.drawing.transforming
+namespace ToCutProjectors.modifiers
 {
-    internal class GradientTransform
+    internal class BridgeMaker
     {
     }
 }

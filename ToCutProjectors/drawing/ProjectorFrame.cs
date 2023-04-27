@@ -3,7 +3,7 @@ using ToCutProjectors.services;
 
 namespace ToCutProjectors.drawing
 {
-    public class LaserFrame : Collection<IDrawingObject>
+    public class ProjectorFrame : Collection<IDrawingObject>
     {
     }
 }

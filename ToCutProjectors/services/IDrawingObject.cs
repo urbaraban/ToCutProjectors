@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToCutProjectors.services
 {
-    internal interface IDrawingObject
+    public interface IDrawingObject
     {
     }
 }

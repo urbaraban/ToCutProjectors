@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ToCutProjectors.drawing.modifiers
+namespace ToCutProjectors.modifiers
 {
     internal class CutByFigure
     {

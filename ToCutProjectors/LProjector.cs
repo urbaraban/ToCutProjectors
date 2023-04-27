@@ -1,18 +1,45 @@
-﻿using System.Net;
+﻿using System.Collections.ObjectModel;
+using System.Net;
+using ToCutProjectors.drawing;
+using ToCutProjectors.services;
 
 namespace ToCutProjectors
 {
-    public abstract class LProjector
+    public class LProjector : Collection<IFrameOperator>
     {
-        public virtual IPAddress IPAddress { get; set; } = new IPAddress(new byte[] { 127, 0, 0, 1 });
+        public bool IsOn { get; set; } = true;
 
-        public virtual bool IsConnected { get; } = true;
+        private ProjectorFrame? Frame { get; set; }
 
-        public virtual bool IsOn { get; set; } = true;
+        private CancellationTokenSource cancellation = new CancellationTokenSource();
 
-        public virtual double HeightResolution { get; set; } = 1000;
-        public virtual double WidthResolutuon { get; set; } = 1000;
+        public async void UpdateFrame(ProjectorFrame? frame)
+        {
+            this.Frame = frame;
+            await RenderFrame(frame);
+        }
 
+        private async Task RenderFrame(ProjectorFrame? frame)
+        {
+            cancellation.Cancel();
+
+            CancellationToken ct = cancellation.Token;
+            ProjectorFrame? result = this.Frame;
+
+            if (result != null)
+            {
+                await Task.Run(() =>
+                {
+                    for (int i = 0; i < this.Count && result != null && ct.IsCancellationRequested == false; i += 1)
+                    {
+                        if (this[i].IsOn == true)
+                        {
+                            result = this[i].ModifierFrame(result);
+                        }
+                    }
+                }, ct);
+            }
+        }
     }
 
     public enum DeviceType : int

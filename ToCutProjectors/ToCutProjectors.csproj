@@ -14,6 +14,9 @@
     <Reference Include="MonchaNETDll">
       <HintPath>dll\MonchaNETDll.DLL</HintPath>
     </Reference>
+    <Reference Include="StclLibrary">
+      <HintPath>dll\StclLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
