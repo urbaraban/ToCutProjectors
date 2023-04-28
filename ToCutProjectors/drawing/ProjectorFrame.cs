@@ -1,5 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-using ToCutProjectors.services;
+using ToCutProjectors.interfaces;
 
 namespace ToCutProjectors.drawing
 {

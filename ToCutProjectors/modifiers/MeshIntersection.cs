@@ -8,5 +8,6 @@ namespace ToCutProjectors.modifiers
 {
     internal class MeshIntersection
     {
+
     }
 }

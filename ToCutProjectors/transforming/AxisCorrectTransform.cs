@@ -1,13 +1,16 @@
 ﻿using ToCutProjectors.drawing;
-using ToCutProjectors.services;
+using ToCutProjectors.interfaces;
 
 namespace ToCutProjectors.transforming
 {
     public class AxisCorrectTransform : IFrameOperator
     {
-        public bool IsOn { get; set; }
+        public bool IsOn { get; set; } = true;
+        public bool Status { get; set; } = true;
         public List<float> XAxisCorrect { get; } = new List<float>() { 0f, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f };
         public List<float> YAxisCorrect { get; } = new List<float>() { 0f, 0.1f, 0.2f, 0.3f, 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 0.9f, 1f };
+
+        public event EventHandler<bool>? StatusChanged;
 
         public ProjectorFrame? FrameOperation(ProjectorFrame modifierFrame)
         {
@@ -27,6 +30,24 @@ namespace ToCutProjectors.transforming
             return result;
         }
 
+        private LVectorCollection Transform(LVectorCollection drawingObjects)
+        {
+            LVectorCollection result = new LVectorCollection();
+            foreach (LVector vector in drawingObjects)
+            {
+                result.Add(Transform(vector));
+            }
+            return result;
+        }
+
+        private LVector Transform(LVector vector)
+        {
+            return new LVector(
+                Transform(vector.P1),
+                Transform(vector.P2),
+                vector.IsBlank);
+        }
+
         private LPoint Transform(LPoint point)
         {
             point.X = GetAxisCorrect(point.X, XAxisCorrect);
@@ -34,15 +55,6 @@ namespace ToCutProjectors.transforming
             return point;
         }
 
-        private LVector Transform(LVector vector)
-        {
-
-        }
-
-        private LVectorCollection Transform(LVectorCollection objects)
-        {
-            throw new NotImplementedException();
-        }
 
         private static float GetAxisCorrect(float value, List<float> axisCorrect)
         {

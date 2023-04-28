@@ -1,6 +1,6 @@
 ﻿using MonchaNETDll.NETLaserDevices;
 using StclLibrary.Laser;
-using ToCutProjectors.services;
+using ToCutProjectors.interfaces;
 
 namespace ToCutProjectors.controllers
 {
@@ -8,6 +8,8 @@ namespace ToCutProjectors.controllers
     {
         public static int TCPBeginnerPort => 9764;
         public static int UDPBeginnerPort => 9765;
+
+        public event EventHandler<bool>? StatusChanged;
 
         public double HeightResolution
         {
@@ -54,8 +56,10 @@ namespace ToCutProjectors.controllers
                 }
         };
 
+
         private Task? WhileTask { get; set; }
-        public bool IsOn { get; set; }
+        public bool IsOn { get; set; } = true;
+        public bool Status { get; set; } = true;
 
         public drawing.ProjectorFrame? FrameOperation(drawing.ProjectorFrame modifierFrame)
         {

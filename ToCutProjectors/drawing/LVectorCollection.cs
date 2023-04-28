@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ToCutProjectors.services;
+﻿using System.Collections.ObjectModel;
+using ToCutProjectors.interfaces;
 
 namespace ToCutProjectors.drawing
 {
-    public class LVectorCollection : Collection<IDrawingObject>, IDrawingObject
+    public class LVectorCollection : List<LVector>, IDrawingObject
     {
 
     }
