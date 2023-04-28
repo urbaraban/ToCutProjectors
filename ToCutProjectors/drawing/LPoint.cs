@@ -17,6 +17,12 @@
             this.T = 1;
         }
 
+        public new string ToString() =>
+            $"{Math.Round(X, 8)} : " +
+            $"{Math.Round(Y, 8)} : " +
+            $"{Math.Round(Z, 8)} " +
+            $"T:{T}";
+
         public float GetLenth2D(LPoint point)
         {
             return LPoint.GetLenth2D(this.X, this.Y, point.X, point.Y);

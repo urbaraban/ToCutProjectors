@@ -1,7 +1,7 @@
 ﻿using ToCutProjectors.drawing;
 using ToCutProjectors.interfaces;
 
-namespace ToCutProjectors.transforming
+namespace ToCutProjectors.callibrations
 {
     public class AxisCorrectTransform : IFrameOperator
     {
@@ -42,9 +42,11 @@ namespace ToCutProjectors.transforming
 
         private LVector Transform(LVector vector)
         {
+            LPoint p1 = Transform(vector.P1);
+            LPoint p2 = Transform(vector.P2);
             return new LVector(
-                Transform(vector.P1),
-                Transform(vector.P2),
+                p1,
+                p2,
                 vector.IsBlank);
         }
 
@@ -58,16 +60,14 @@ namespace ToCutProjectors.transforming
 
         private static float GetAxisCorrect(float value, List<float> axisCorrect)
         {
-            if (value >= axisCorrect[0] && value < axisCorrect.Last())
-            {
-                float step = 1f / (axisCorrect.Count - 1);
-                int index = (int)(value / step);
+            float step = 1f / (axisCorrect.Count - 1);
+            int index = (int)(value / step);
 
-                float rvalue = value - step * index;
-                float percent = rvalue / step;
-                float between = axisCorrect[index + 1] - axisCorrect[index];
-                value = axisCorrect[index] + percent * between;
-            }
+            float rvalue = value - step * index;
+            float percent = rvalue / step;
+            float between = axisCorrect[index + 1] - axisCorrect[index];
+            value = axisCorrect[index] + percent * between;
+
             return value;
         }
     }

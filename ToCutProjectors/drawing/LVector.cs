@@ -60,5 +60,10 @@ namespace ToCutProjectors.drawing
                 IsBlank = this.IsBlank
             };
         }
-    }
+
+        public new string ToString() =>
+            $"P1:({Math.Round(P1.X, 6)} : {Math.Round(P1.Y, 6)}) " +
+            $"P2:({Math.Round(P2.X, 6)} : {Math.Round(P2.Y, 6)}) " +
+            $"B:{IsBlank} L:{Math.Round(Length, 6)}";
+            }
 }

@@ -35,7 +35,6 @@ namespace ToCutProjectors.graphs
             this.OutReverse = Reverse;
         }
 
-
         public GraphConnection GetNearGraphConnection(LPoint point)
         {
             float _lenth1 = point.GetLenth2D(this.P1);
